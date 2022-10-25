@@ -10,6 +10,16 @@ type Data = {
     success: boolean;
 };
 
+/**
+ * @swagger
+ * /api/environment:
+ *   get:
+ *     description: Returns the list of environments,
+ *     responses:
+ *       200:
+ *         description: Returns list of environment
+ */
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
     const { method } = req;
     await dbConnect();
