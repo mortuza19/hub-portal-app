@@ -11,13 +11,50 @@ type Data = {
 };
 
 /**
- * @swagger
- * /api/environment:
- *   get:
- *     description: Returns the list of environments,
- *     responses:
- *       200:
- *         description: Returns list of environment
+ *  @openapi
+ *  /api/environment:
+ *  get:
+ *    summary: Returns list of environments.
+ *    description: Returns the list of environments,
+ *    responses:
+ *      '200':
+ *        description: A response object
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       id:
+ *                         type: string
+ *                         example: '1234567890'
+ *                       name:
+ *                         type: string
+ *                         example: 'DEV'
+ *                 message:
+ *                   type: string
+ *                   example: 'Success'
+ *      '400':
+ *        description: A error object
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                success:
+ *                  type: boolean
+ *                  example: false
+ *                message:
+ *                  type: string
+ *                  example: 'Bad Request'
+ *
  */
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
